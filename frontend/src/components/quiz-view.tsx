@@ -57,7 +57,7 @@ export function QuizView({ resourceId }: { resourceId: string }) {
     setLoading(true);
     try {
       const authHeaders = await getBackendAuthHeaders();
-      const res = await fetch("http://localhost:8000/api/learning/generate-quiz", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/learning/generate-quiz`, {
         method: "POST",
         headers: { "Content-Type": "application/json", ...authHeaders },
         body: JSON.stringify({ resource_id: resourceId }),

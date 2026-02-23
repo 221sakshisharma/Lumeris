@@ -21,7 +21,7 @@ export function ChatInterface({ resourceId }: { resourceId: string }) {
       setLoadingHistory(true);
       try {
         const authHeaders = await getBackendAuthHeaders();
-        const res = await fetch(`http://localhost:8000/api/chat/history/${resourceId}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/chat/history/${resourceId}`, {
           cache: "no-store",
           headers: authHeaders,
         });
@@ -111,7 +111,7 @@ export function ChatInterface({ resourceId }: { resourceId: string }) {
 
     try {
       const authHeaders = await getBackendAuthHeaders();
-      const res = await fetch("http://localhost:8000/api/chat/", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/chat/`, {
         method: "POST",
         headers: { "Content-Type": "application/json", ...authHeaders },
         body: JSON.stringify({ query: userMessage, resource_id: resourceId }),
@@ -158,7 +158,7 @@ export function ChatInterface({ resourceId }: { resourceId: string }) {
     setClearing(true);
     try {
       const authHeaders = await getBackendAuthHeaders();
-      const res = await fetch(`http://localhost:8000/api/chat/history/${resourceId}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/chat/history/${resourceId}`, {
         method: "DELETE",
         headers: authHeaders,
       });

@@ -20,7 +20,7 @@ export function AddResourceForm() {
     setLoading(true);
     try {
       const authHeaders = await getBackendAuthHeaders();
-      const res = await fetch("http://localhost:8000/api/resources/process-video", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resources/process-video`, {
         method: "POST",
         headers: { "Content-Type": "application/json", ...authHeaders },
         body: JSON.stringify({ url: youtubeUrl }),
@@ -49,7 +49,7 @@ export function AddResourceForm() {
       const formData = new FormData();
       formData.append("file", file);
 
-      const res = await fetch("http://localhost:8000/api/resources/process-pdf", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resources/process-pdf`, {
         method: "POST",
         headers: authHeaders,
         body: formData,

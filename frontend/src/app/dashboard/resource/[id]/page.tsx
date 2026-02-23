@@ -24,7 +24,7 @@ export default async function ResourcePage({ params }: PageProps) {
 
   if (user) {
     try {
-      const response = await fetch(`http://localhost:8000/api/resources/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resources/${id}`, {
         cache: "no-store",
         headers: {
           "x-user-id": user.id,

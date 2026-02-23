@@ -24,7 +24,7 @@ export function ResourceSidebar() {
     async function loadResources() {
       try {
         const authHeaders = await getBackendAuthHeaders();
-        const res = await fetch("http://localhost:8000/api/resources", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resources`, {
           cache: "no-store",
           headers: authHeaders,
         });
