@@ -1,0 +1,9 @@
+fastapi==0.131.0
+fitz==0.0.1.dev2
+openai==2.21.0
+pgvector==0.2.5
+pydantic==2.12.5
+pydantic_settings==2.13.1
+python-dotenv==1.2.1
+SQLAlchemy==2.0.30
+youtube_transcript_api==1.2.4
